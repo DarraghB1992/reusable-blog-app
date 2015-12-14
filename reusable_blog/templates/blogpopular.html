@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Top 3 Posts</h2>
+    {% for post in pop %}
+
+        <div>
+            <div>
+                <p> {{ post.published_date }} | <strong>Views:</strong> {{ post.views }} |
+                    <strong>Tag</strong> {{ post.tag }}</p>
+            </div>
+            <h3><a href="">{{ post.title }}</a></h3>
+
+            <p>{{ post.content|truncatewords:30 }}</p>
+            <button class="btn btn-default" onclick="location.href={{ post.id }}">Read More</button>
+        </div>
+        <hr>
+    {% endfor %}
+
+
+{% endblock content %}
